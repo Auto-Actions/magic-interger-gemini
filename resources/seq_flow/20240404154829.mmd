@@ -1,0 +1,12 @@
+
+sequenceDiagram
+    participant DP as DataPreprocessing
+    participant MT as ModelTraining
+    participant ME as ModelEvaluation
+    DP->>DP: load_data(path)
+    DP->>DP: clean_data()
+    DP->>DP: split_data(test_size)
+    DP-->>MT: return X_train, y_train, X_test, y_test
+    MT->>MT: train_model(X_train, y_train)
+    MT-->>ME: return model
+    ME->>ME: evaluate_model(model, X_test, y_test)

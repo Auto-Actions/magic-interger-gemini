@@ -1,0 +1,17 @@
+
+classDiagram
+    class DataPreprocessing {
+        -data: pandas.DataFrame
+        +load_data(path: str)
+        +clean_data()
+        +split_data(test_size: float)
+    }
+    class ModelTraining {
+        -model: sklearn.model
+        +train_model(X_train: pandas.DataFrame, y_train: pandas.Series)
+    }
+    class ModelEvaluation {
+        +evaluate_model(model: sklearn.model, X_test: pandas.DataFrame, y_test: pandas.Series)
+    }
+    DataPreprocessing --> ModelTraining
+    ModelTraining --> ModelEvaluation
